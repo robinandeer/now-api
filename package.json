@@ -1,0 +1,22 @@
+{
+  "name": "now-api",
+  "version": "1.0.0",
+  "description": "Testing out GitHub actions and Zeit Now",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robinandeer/now-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robinandeer/now-api/issues"
+  },
+  "homepage": "https://github.com/robinandeer/now-api#readme",
+  "dependencies": {
+    "@now/node": "^0.12.5"
+  }
+}
