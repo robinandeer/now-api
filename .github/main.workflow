@@ -22,14 +22,14 @@ action "master-branch-filter" {
   args = "branch master"
 }
 
+action "Run Jest" {
+  uses = "stefanoeb/jest-action@master"
+  needs = ["master-branch-filter"]
+}
+
 action "release" {
   uses = "actions/zeit-now@5c51b26db987d15a0133e4c760924896b4f1512f"
   needs = ["master-branch-filter"]
   args = "now --target production"
   secrets = ["ZEIT_TOKEN"]
-}
-
-action "action \"Run Jest\" {   uses = \"stefanoeb/jest-action@1.0.0\" }" {
-  uses = "stefanoeb/jest-action"
-  needs = ["master-branch-filter"]
 }
