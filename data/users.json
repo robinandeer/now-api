@@ -1,12 +1,10 @@
-{
-  "users": [
-    {
-      "id": "1",
-      "name": "Paul T. Anderson"
-    },
-    {
-      "id": "2",
-      "name": "Quentin Tarantino"
-    }
-  ]
-}
+[
+  {
+    "id": "1",
+    "name": "Paul T. Anderson"
+  },
+  {
+    "id": "2",
+    "name": "Quentin Tarantino"
+  }
+]
