@@ -14,7 +14,7 @@ jobs:
         env:
           ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
         with:
-          args: --no-clipboard deploy > "${HOME}/deploy.txt"
+          args: --no-clipboard --name now-api deploy > "${HOME}/deploy.txt"
 
       - name: Alias deployment
         uses: actions/zeit-now@1.0.0
@@ -38,4 +38,4 @@ jobs:
         env:
           ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
         with:
-          args: now --target production
+          args: --name now-api --target production
