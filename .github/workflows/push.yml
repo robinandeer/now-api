@@ -29,7 +29,9 @@ jobs:
           args: branch master
 
       - name: Run Jest
-        uses: stefanoeb/jest-action@master
+        uses: stefanoeb/jest-action@1.0.0
+        env:
+          BASE_URL: https://${{ github.sha }}.now.sh/api
 
       - name: Release to production
         uses: actions/zeit-now@1.0.0
