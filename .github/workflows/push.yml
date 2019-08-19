@@ -14,14 +14,14 @@ jobs:
         env:
           ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
         with:
-          args: --no-clipboard deploy > $HOME/${{ github.action }}.txt
+          args: --no-clipboard deploy > "${HOME}/deploy.txt"
 
       - name: Alias deployment
         uses: actions/zeit-now@1.0.0
         env:
           ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
         with:
-          args: alias `cat /github/home/deploy.txt` ${{ github.sha }}
+          args: alias $(cat "${HOME}/deploy.txt") ${{ github.sha }}
 
       - name: Filter master branch
         uses: actions/bin/filter@master
