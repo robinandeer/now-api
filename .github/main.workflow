@@ -1,9 +1,9 @@
 workflow "Build and Publish" {
   on = "push"
-  resolves = ["release", "action \"Run Jest\" {   uses = \"stefanoeb/jest-action@1.0.0\" }"]
+  resolves = ["release", "run-jest"]
 }
 
-action "deplpy" {
+action "deploy" {
   uses = "actions/zeit-now@5c51b26db987d15a0133e4c760924896b4f1512f"
   secrets = ["ZEIT_TOKEN"]
   args = "--no-clipboard deploy > $HOME/$GITHUB_ACTION.txt"
@@ -11,7 +11,7 @@ action "deplpy" {
 
 action "alias" {
   uses = "actions/zeit-now@5c51b26db987d15a0133e4c760924896b4f1512f"
-  needs = ["deplpy"]
+  needs = ["deploy"]
   secrets = ["ZEIT_TOKEN"]
   args = "alias `cat /github/home/deploy.txt` $GITHUB_SHA"
 }
@@ -22,7 +22,7 @@ action "master-branch-filter" {
   args = "branch master"
 }
 
-action "Run Jest" {
+action "run-jest" {
   uses = "stefanoeb/jest-action@master"
   needs = ["master-branch-filter"]
 }
